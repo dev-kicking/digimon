@@ -14,19 +14,41 @@ import com.devkick.data.util.RemoteResult
  * @desc
  **/
 class DigimonRepoImpl(
-    private val digimonService: DigimonService
-): BaseDataSource(), DigimonRepo {
+    private val digimonService: DigimonService,
+) : BaseDataSource(), DigimonRepo {
     override suspend fun getDigimon(idOrName: String): RemoteResult<Digimon> {
         val result = getResult { digimonService.getDigimon(idOrName) }
 
         if (result.status != RemoteResult.Status.SUCCESS) {
-            Log.e("deletePet", result.message.toString())
+            Log.e("getDigimon", result.message.toString())
         }
 
         return result
     }
 
-    override suspend fun getDigimonList(): RemoteResult<DigimonList> {
-        TODO("Not yet implemented")
+    override suspend fun getDigimonList(
+        name: String?,
+        attribute: String?,
+        xAntibody: Boolean?,
+        level: String?,
+        page: Int?,
+        pageSize: Int?,
+    ): RemoteResult<DigimonList> {
+        val result = getResult {
+            digimonService.getDigimonList(
+                name,
+                attribute,
+                xAntibody,
+                level,
+                page,
+                pageSize
+            )
+        }
+
+        if (result.status != RemoteResult.Status.SUCCESS) {
+            Log.e("getDigimonList", result.message.toString())
+        }
+
+        return result
     }
 }

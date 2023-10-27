@@ -20,5 +20,12 @@ interface DigimonRepo {
     /**
      * 디지몬 정보 리스트 호출
      */
-    suspend fun getDigimonList(): RemoteResult<DigimonList>
+    suspend fun getDigimonList(
+        name: String?,
+        attribute: String?,
+        xAntibody: Boolean?,
+        level: String?,
+        page: Int?,
+        pageSize: Int?
+    ): RemoteResult<DigimonList>
 }

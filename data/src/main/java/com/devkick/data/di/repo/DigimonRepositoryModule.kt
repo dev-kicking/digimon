@@ -15,7 +15,7 @@ object DigimonRepositoryModule {
 
     @Provides
     @Singleton
-    fun provideWalkRepository(
+    fun provideDigimonRepository(
         digimonService: DigimonService
     ): DigimonRepo {
         return DigimonRepoImpl(digimonService)

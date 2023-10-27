@@ -14,12 +14,12 @@ import retrofit2.http.Query
  * @desc
  **/
 interface DigimonService {
-    @GET("https://www.digi-api.com/api/v1/digimon/{idOrName}")
+    @GET("v1/digimon/{idOrName}")
     suspend fun getDigimon(
         @Path("idOrName") id: String,
     ): Response<Digimon>
 
-    @GET("https://www.digi-api.com/api/v1/digimon")
+    @GET("v1/digimon")
     suspend fun getDigimonList(
         @Query("name") name: String?,
         @Query("attribute") attribute: String?,

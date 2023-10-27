@@ -3,6 +3,7 @@ package com.devkick.data.util
 import android.widget.Toast
 import com.devkick.data.model.error.ErrorResponse
 import com.devkick.data.model.error.ValidationErrorResponse
+import com.devkick.data.model.list.DigimonList
 import com.google.gson.Gson
 import retrofit2.Response
 import java.net.UnknownHostException
@@ -14,7 +15,6 @@ import javax.inject.Inject
 
 const val ACCEPTED = 202
 const val BAD_REQUEST = 400
-const val FORBIDDEN = 403
 const val NOT_FOUND = 404
 const val VALIDATION_ERROR = 422
 const val INTERNAL_SERVER_ERROR = 500
@@ -38,9 +38,7 @@ abstract class BaseDataSource {
                         RemoteResult.success(body)
                     }
                 }
-                /*
-                todo 서버개발자와 논의 후 수정
-                 */
+
                 response.code() == NOT_FOUND || response.code() == INTERNAL_SERVER_ERROR -> {
                     RemoteResult.check("${response.code()} ${response.message()}")
                 }
