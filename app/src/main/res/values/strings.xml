@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">app</string>
+    <string name="app_name">Our Digimon</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_first">FirstActivity</string>
 </resources>
