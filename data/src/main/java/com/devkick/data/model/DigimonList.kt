@@ -10,4 +10,5 @@ data class ListDigimonItem(
     val id: Int,
     val name: String,
     val url: String?,
+    val isLike: Boolean,
 )
